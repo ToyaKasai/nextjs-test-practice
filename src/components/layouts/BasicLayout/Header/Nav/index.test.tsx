@@ -3,7 +3,7 @@ import mockRouter from "next-router-mock";
 import { Nav } from "./";
 
 test("「My Posts」がカレント状態になっている", () => {
-  mockRouter.setCurrentUrl("/my/posts");
+  mockRouter.setCurrentUrl("/my/posts"); // NOTE: 現在URLが「/my/posts」であると仮定する
   render(<Nav onCloseMenu={() => {}} />);
   const link = screen.getByRole("link", { name: "My Posts" });
   expect(link).toHaveAttribute("aria-current", "page");
@@ -16,6 +16,7 @@ test("「Create Post」がカレント状態になっている", () => {
   expect(link).toHaveAttribute("aria-current", "page");
 });
 
+// NOTE: 反復したテストを実行する時はeachを使用する
 test.each([
   { url: "/my/posts", name: "My Posts" },
   { url: "/my/posts/123", name: "My Posts" },

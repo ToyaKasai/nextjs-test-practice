@@ -3,6 +3,11 @@ import { useRouter } from "next/router";
 import { AnchorHTMLAttributes } from "react";
 import styles from "./styles.module.css";
 
+/**
+ * 対象のフラグが有効な時にaria-current属性を返却する関数
+ * @param flag
+ * @returns
+ */
 function isCurrent(flag: boolean): AnchorHTMLAttributes<HTMLAnchorElement> {
   if (!flag) return {};
   return { "aria-current": "page" };
