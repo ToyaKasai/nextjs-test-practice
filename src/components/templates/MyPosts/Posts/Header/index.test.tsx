@@ -9,6 +9,11 @@ function setup(url = "/my/posts?page=1") {
   mockRouter.setCurrentUrl(url);
   render(<Header />);
   const combobox = screen.getByRole("combobox", { name: "公開ステータス" });
+
+  /**
+   * セレクトボックスから要素を選択するインタラクション
+   * @param label
+   */
   async function selectOption(label: string) {
     await user.selectOptions(combobox, label);
   }
