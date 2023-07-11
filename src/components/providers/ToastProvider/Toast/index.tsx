@@ -19,7 +19,7 @@ export const Toast = ({ message, style }: Props) => {
   }, 2000);
   return (
     <p
-      role="alert"
+      role="alert" // NOTE: Toast系はalertを付与する
       className={styles.module}
       data-style={style}
       data-mounted={isMount}

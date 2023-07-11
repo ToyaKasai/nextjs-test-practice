@@ -12,7 +12,7 @@ export type { ToastState, ToastStyle };
 
 export const ToastProvider = ({
   children,
-  defaultState,
+  defaultState, // 初期値を注入できるように
 }: {
   children: ReactNode;
   defaultState?: Partial<ToastState>;

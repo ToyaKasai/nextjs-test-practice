@@ -3,8 +3,14 @@ import userEvent from "@testing-library/user-event";
 import { ToastProvider } from "./";
 import { useToastAction } from "./hooks";
 import { ToastState } from "./ToastContext";
+/**
+ * テスト観点
+ *
+ * Providerが保持する値に応じて表示が切り替わること
+ * Providerが保持する更新関数を経由し、状態を更新できること
+ */
 
-// #### 1.テスト用のコンポーネントを用意し、インタラクションを実行する
+// 1.テスト用のコンポーネントを用意し、インタラクションを実行する方法
 
 const user = userEvent.setup();
 
@@ -27,7 +33,7 @@ test("showToast を呼び出すと Toast コンポーネントが表示される
   expect(screen.getByRole("alert")).toHaveTextContent(message);
 });
 
-// ### 2.初期値を注入し、表示確認をする
+// 2.初期値を注入し、表示確認をする方法
 
 test("Succeed", () => {
   const state: ToastState = {
